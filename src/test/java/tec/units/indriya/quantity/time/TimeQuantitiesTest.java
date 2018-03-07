@@ -29,35 +29,23 @@
  */
 package tec.units.indriya.quantity.time;
 
-import static java.time.temporal.ChronoUnit.*;
-import static tec.units.indriya.unit.Units.DAY;
-import static tec.units.indriya.unit.Units.HOUR;
-import static tec.units.indriya.unit.Units.MINUTE;
-import static tec.units.indriya.unit.Units.SECOND;
-import static tec.units.indriya.unit.Units.HERTZ;
-
-import java.time.DayOfWeek;
-import java.time.LocalDate;
-import java.time.LocalTime;
-import java.time.Month;
-import java.time.Year;
-import java.time.temporal.ChronoUnit;
-import java.time.temporal.TemporalAdjuster;
-import java.time.temporal.TemporalAdjusters;
-import java.util.concurrent.TimeUnit;
+import org.junit.Assert;
+import org.junit.Test;
+import tec.units.indriya.quantity.Quantities;
+import tec.units.indriya.unit.Units;
 
 import javax.measure.Quantity;
 import javax.measure.Unit;
 import javax.measure.quantity.Frequency;
 import javax.measure.quantity.Time;
+import java.time.*;
+import java.time.temporal.ChronoUnit;
+import java.time.temporal.TemporalAdjuster;
+import java.time.temporal.TemporalAdjusters;
+import java.util.concurrent.TimeUnit;
 
-import org.junit.Assert;
-import org.junit.Test;
-
-import tec.units.indriya.quantity.Quantities;
-import tec.units.indriya.quantity.time.TemporalQuantity;
-import tec.units.indriya.quantity.time.TimeQuantities;
-import tec.units.indriya.unit.Units;
+import static java.time.temporal.ChronoUnit.*;
+import static tec.units.indriya.unit.Units.*;
 
 public class TimeQuantitiesTest {
 
@@ -201,7 +189,7 @@ public class TimeQuantitiesTest {
   public void inverseTest() {
     TimeUnitQuantity tenSeconds = TimeUnitQuantity.of(10, TimeUnit.SECONDS);
     Quantity<Frequency> perTenSeconds = tenSeconds.inverse();
-    Assert.assertEquals(Double.valueOf(0.1d), perTenSeconds.getValue());
+    Assert.assertEquals(0.1d, perTenSeconds.getValue());
     Assert.assertEquals(HERTZ.getConverterTo(perTenSeconds.getUnit()), perTenSeconds.getUnit().getConverterTo(HERTZ));
   }
 
