@@ -29,44 +29,31 @@
  */
 package tec.units.indriya.quantity.time;
 
-import static java.util.concurrent.TimeUnit.DAYS;
-import static java.util.concurrent.TimeUnit.HOURS;
-import static java.util.concurrent.TimeUnit.MICROSECONDS;
-import static java.util.concurrent.TimeUnit.MILLISECONDS;
-import static java.util.concurrent.TimeUnit.MINUTES;
-import static java.util.concurrent.TimeUnit.NANOSECONDS;
-import static java.util.concurrent.TimeUnit.SECONDS;
-import static tec.units.indriya.unit.Units.DAY;
-import static tec.units.indriya.unit.Units.HOUR;
-import static tec.units.indriya.unit.Units.MINUTE;
-import static tec.units.indriya.unit.Units.SECOND;
-
-import java.util.concurrent.TimeUnit;
+import org.junit.Assert;
+import org.junit.Test;
+import tec.units.indriya.quantity.Quantities;
+import tec.units.indriya.unit.Units;
 
 import javax.measure.Quantity;
 import javax.measure.Unit;
 import javax.measure.quantity.Time;
+import java.util.concurrent.TimeUnit;
 
-import org.junit.Assert;
-import org.junit.Test;
-
-import tec.units.indriya.quantity.Quantities;
-import tec.units.indriya.quantity.time.TimeQuantities;
-import tec.units.indriya.quantity.time.TimeUnitQuantity;
-import tec.units.indriya.unit.Units;
+import static java.util.concurrent.TimeUnit.*;
+import static tec.units.indriya.unit.Units.*;
 
 public class TimeQuantitiesConcurrentTest {
 
   @Test
   public void ofTest() {
 
-    TimeUnitQuantity day = TimeUnitQuantity.of(DAYS, 1);
-    TimeUnitQuantity hour = TimeUnitQuantity.of(HOURS, 1);
-    TimeUnitQuantity minute = TimeUnitQuantity.of(MINUTES, 1);
-    TimeUnitQuantity second = TimeUnitQuantity.of(SECONDS, 1);
-    TimeUnitQuantity microSecond = TimeUnitQuantity.of(MICROSECONDS, 1);
-    TimeUnitQuantity milliSecond = TimeUnitQuantity.of(MILLISECONDS, 1);
-    TimeUnitQuantity nanoSecond = TimeUnitQuantity.of(NANOSECONDS, 1);
+    TimeUnitQuantity day = TimeUnitQuantity.of(1, DAYS);
+    TimeUnitQuantity hour = TimeUnitQuantity.of(1, HOURS);
+    TimeUnitQuantity minute = TimeUnitQuantity.of(1, MINUTES);
+    TimeUnitQuantity second = TimeUnitQuantity.of(1, SECONDS);
+    TimeUnitQuantity microSecond = TimeUnitQuantity.of(1, MICROSECONDS);
+    TimeUnitQuantity milliSecond = TimeUnitQuantity.of(1, MILLISECONDS);
+    TimeUnitQuantity nanoSecond = TimeUnitQuantity.of(1, NANOSECONDS);
 
     Assert.assertEquals(DAYS, day.getTimeUnit());
     Assert.assertEquals(Integer.valueOf(1), day.getValue());
@@ -103,13 +90,13 @@ public class TimeQuantitiesConcurrentTest {
   @Test
   public void toUnitTest() {
 
-    TimeUnitQuantity day = TimeUnitQuantity.of(DAYS, 1);
-    TimeUnitQuantity hour = TimeUnitQuantity.of(HOURS, 1);
-    TimeUnitQuantity minute = TimeUnitQuantity.of(MINUTES, 1);
-    TimeUnitQuantity second = TimeUnitQuantity.of(SECONDS, 1);
-    TimeUnitQuantity microSecond = TimeUnitQuantity.of(MICROSECONDS, 1);
-    TimeUnitQuantity milliSecond = TimeUnitQuantity.of(MILLISECONDS, 1);
-    TimeUnitQuantity nanoSecond = TimeUnitQuantity.of(NANOSECONDS, 1);
+    TimeUnitQuantity day = TimeUnitQuantity.of(1, DAYS);
+    TimeUnitQuantity hour = TimeUnitQuantity.of(1, HOURS);
+    TimeUnitQuantity minute = TimeUnitQuantity.of(1, MINUTES);
+    TimeUnitQuantity second = TimeUnitQuantity.of(1, SECONDS);
+    TimeUnitQuantity microSecond = TimeUnitQuantity.of(1, MICROSECONDS);
+    TimeUnitQuantity milliSecond = TimeUnitQuantity.of(1, MILLISECONDS);
+    TimeUnitQuantity nanoSecond = TimeUnitQuantity.of(1, NANOSECONDS);
 
     Assert.assertEquals(DAY, day.toUnit());
     Assert.assertEquals(HOUR, hour.toUnit());
@@ -124,13 +111,13 @@ public class TimeQuantitiesConcurrentTest {
 
   @Test
   public void toQuanityTest() {
-    TimeUnitQuantity day = TimeUnitQuantity.of(DAYS, 1);
-    TimeUnitQuantity hour = TimeUnitQuantity.of(HOURS, 1);
-    TimeUnitQuantity minute = TimeUnitQuantity.of(MINUTES, 1);
-    TimeUnitQuantity second = TimeUnitQuantity.of(SECONDS, 1);
-    TimeUnitQuantity microSecond = TimeUnitQuantity.of(MICROSECONDS, 1);
-    TimeUnitQuantity milliSecond = TimeUnitQuantity.of(MILLISECONDS, 1);
-    TimeUnitQuantity nanoSecond = TimeUnitQuantity.of(NANOSECONDS, 1);
+    TimeUnitQuantity day = TimeUnitQuantity.of(1, DAYS);
+    TimeUnitQuantity hour = TimeUnitQuantity.of(1, HOURS);
+    TimeUnitQuantity minute = TimeUnitQuantity.of(1, MINUTES);
+    TimeUnitQuantity second = TimeUnitQuantity.of(1, SECONDS);
+    TimeUnitQuantity microSecond = TimeUnitQuantity.of(1, MICROSECONDS);
+    TimeUnitQuantity milliSecond = TimeUnitQuantity.of(1, MILLISECONDS);
+    TimeUnitQuantity nanoSecond = TimeUnitQuantity.of(1, NANOSECONDS);
 
     verifyQuantity(day.toQuantity(), DAY, 1);
     verifyQuantity(hour.toQuantity(), HOUR, 1);
@@ -144,7 +131,7 @@ public class TimeQuantitiesConcurrentTest {
 
   @Test
   public void convertTest() {
-    TimeUnitQuantity day = TimeUnitQuantity.of(DAYS, 1);
+    TimeUnitQuantity day = TimeUnitQuantity.of(1, DAYS);
     TimeUnitQuantity hours = day.to(TimeUnit.HOURS);
 
     Assert.assertEquals(TimeUnit.HOURS, hours.getTimeUnit());
