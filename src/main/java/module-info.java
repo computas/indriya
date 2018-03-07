@@ -29,9 +29,6 @@
  */
 module tec.units.indriya {
     requires java.logging;
-    requires javax.measure;
-    requires javax.measure.format;
-    requires javax.measure.quantity;
-    requires javax.measure.spi;
-    uses java.measure;
+    requires java.measure;
+	requires uom.lib.common;
 }
